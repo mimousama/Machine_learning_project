@@ -142,5 +142,5 @@ The results help us better understand the dataset and demonstrate the practical 
 **Project developed for I&C SCI_X427.09 – Introduction to Machine Learning.**
 
 **Group Members:**
-- Student 1: [Full Name]
-- Student 2: [Full Name]
+- Student 1: Chen Lana
+- Student 2: Nguyen Minh-Lam
