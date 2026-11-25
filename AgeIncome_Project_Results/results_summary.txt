@@ -1,0 +1,45 @@
+AGE AND INCOME K-MEANS PROJECT SUMMARY
+================================================
+Observations analyzed: 30
+Features used: Age, Income
+
+Machine-learning type and objective
+K-Means is an unsupervised learning algorithm. For this exercise, the rows are treated as unlabeled: Age and Income are used to find homogeneous groups of people. There is no known target label. A supervised X_train/X_test/y_train/y_test split is therefore not normally required; clustering evaluates structure in the data rather than predicting a held-out labeled target.
+
+Preprocessing completed
+- Checked selected-feature missing values; missing/non-numeric values were converted and median-imputed when needed.
+- Removed exact duplicate rows when present (0 removed).
+- Selected the actual CSV columns Age and Income.
+- Verified selected features are numeric, finite, and contain enough observations.
+- Detected IQR outliers and retained them; no observation was removed solely for being an outlier.
+- Standardized features with StandardScaler; original values were retained for interpretation.
+- Potential IQR outliers retained (not removed): Age=0, Income=0
+
+Cluster-count selection
+Estimated elbow K: 3 (an approximate, visually subjective bend).
+Selected K: 6 (highest tested silhouette score, 0.5228).
+The elbow method measures the decrease in within-cluster inertia as K increases. Silhouette balances within-cluster cohesion and between-cluster separation. These methods can disagree; the selected K is a data-driven proposal, not a universal truth.
+
+K=3 versus selected K
+K=3 inertia: 14.0359; silhouette: 0.4529.
+Selected K=6 inertia: 3.5398; silhouette: 0.5228.
+K=3 cluster profile:
+         Count   Mean_Age   Mean_Income  Median_Age  Median_Income  Percentage
+Cluster                                                                       
+0            8  57.875000  47729.125000        57.0        45805.0       26.67
+1           12  32.583333  20363.583333        36.5        20244.5       40.00
+2           10  52.500000  21416.100000        51.5        22511.0       33.33
+
+Selected-K cluster profile:
+         Count  Mean_Age  Mean_Income  Median_Age  Median_Income  Percentage
+Cluster                                                                     
+0            5    57.400     25399.40        58.0        24947.0       16.67
+1            4    62.500     55866.50        63.5        56543.0       13.33
+2            4    23.500     14357.75        22.5        14089.5       13.33
+3            8    37.125     23366.50        37.5        22432.5       26.67
+4            4    53.250     39591.75        55.0        39731.5       13.33
+5            5    47.600     17432.80        48.0        16575.0       16.67
+
+Interpretation and limitations
+Cluster numbers are arbitrary identifiers, not rankings. Compare the mean Age and Income values to describe each group. K-Means is distance-based and sensitive to scaling, outliers, and the chosen K. Because there are no reference labels, K-Means does not directly provide accuracy or a confusion matrix; no accuracy value is invented.
+Recommendations: describe each segment using its original-unit centroid and size; compare the K=3 and selected-K profiles; and validate whether the segments are useful for the project's real question before making decisions about people.
