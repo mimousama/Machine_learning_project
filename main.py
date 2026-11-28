@@ -1,5 +1,5 @@
 # Introduction to Machine Learning - Age and Income project
-# Beginner-friendly K-Means clustering example
+
 
 import pandas as pd
 import matplotlib.pyplot as plt
